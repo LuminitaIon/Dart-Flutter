@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +28,40 @@ class _HomePageState extends State<HomePage> {
             fontSize: 25,
             ),
           ),
+      ),
+      body: _tasksList(),
+      floatingActionButton: _addTaskButton(),
+    );
+  }
+
+
+  Widget _tasksList() {
+    return ListView(
+      children: [
+        ListTile(
+          title: const Text(
+            'Do laundry!',
+            style: TextStyle(
+              decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          subtitle: Text(
+            DateTime.now().toString(),
+          ),
+          trailing: const Icon(
+            Icons.check_box_outlined,
+            color: Colors.red,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _addTaskButton() {
+    return FloatingActionButton(
+      onPressed: () {},
+      child: const Icon(
+        Icons.add,
       ),
     );
   }
